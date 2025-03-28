@@ -88,22 +88,6 @@
       font-style: italic;
     }
 
-    .audio-control {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: rgba(255,255,255,0.1);
-      padding: 10px;
-      border-radius: 50%;
-      cursor: pointer;
-      z-index: 9999;
-      font-size: 1.3em;
-    }
-
-    .audio-control:hover {
-      background: rgba(255,255,255,0.3);
-    }
-
     .typewriter-box {
       margin-top: 40px;
       font-size: 1.3em;
@@ -163,11 +147,6 @@
   </style>
 </head>
 <body>
-  <div class="audio-control" onclick="toggleAudio()">🎵</div>
-  <audio id="bgAudio" loop>
-    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-  </audio>
-
   <section class="cinematic">
     <h1>Benim adım sessizlik... ama içim hiç susmadı.</h1>
     <div class="typewriter-box" id="typewriterBox"></div>
@@ -225,21 +204,6 @@
   <footer>© Sadece hissedebilenlerin anlayabileceği bir yer</footer>
 
   <script>
-    const bgAudio = document.getElementById('bgAudio');
-    const control = document.querySelector('.audio-control');
-    let isPlaying = false;
-
-    function toggleAudio() {
-      if (isPlaying) {
-        bgAudio.pause();
-        control.textContent = '🔇';
-      } else {
-        bgAudio.play();
-        control.textContent = '🎵';
-      }
-      isPlaying = !isPlaying;
-    }
-
     const messages = [
       "Bazen en büyük çığlık, en derin sessizliktir...",
       "Ben anlatmam, ama anlarsan sonsuz kalırım.",
