@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Benim Adım Sessizlik</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      scroll-behavior: smooth;
+      font-family: 'EB Garamond', serif;
+      background: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 60px 30px;
+      text-align: center;
+      position: relative;
+    }
+
+    .cinematic {
+      background: linear-gradient(to bottom, #0d0d0d, #000);
+    }
+
+    .cinematic h1 {
+      font-size: 3em;
+      animation: scrollText 15s linear infinite;
+      white-space: nowrap;
+    }
+
+    @keyframes scrollText {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    .scene {
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      position: relative;
+    }
+
+    .scene::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 0;
+    }
+
+    .scene .content {
+      position: relative;
+      z-index: 1;
+      font-size: 1.5em;
+      max-width: 900px;
+      padding: 20px;
+      line-height: 1.6;
+    }
+
+    .closing {
+      background: #000;
+      font-style: italic;
+      color: #999;
+      padding-bottom: 100px;
+    }
+
+    .closing p:last-child {
+      margin-top: 25px;
+      color: #444;
+      font-size: 0.85em;
+    }
+
+    .signature {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      font-size: 0.9em;
+      color: #888;
+      font-style: italic;
+    }
+
+    .audio-control {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: rgba(255,255,255,0.1);
+      padding: 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 9999;
+      font-size: 1.3em;
+    }
+
+    .audio-control:hover {
+      background: rgba(255,255,255,0.3);
+    }
+
+    .typewriter-box {
+      margin-top: 40px;
+      font-size: 1.3em;
+      color: #ccc;
+      max-width: 800px;
+      min-height: 80px;
+      white-space: pre-wrap;
+      border-top: 1px solid #333;
+      padding-top: 20px;
+      opacity: 0.85;
+    }
+
+    .mood-check, .diary {
+      background: #111;
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .mood-check h2, .diary h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    input, textarea {
+      padding: 15px;
+      width: 90%;
+      max-width: 600px;
+      border: none;
+      border-radius: 10px;
+      background: #222;
+      color: #fff;
+      font-size: 1em;
+    }
+
+    .save-btn {
+      margin-top: 15px;
+      padding: 10px 25px;
+      background: #444;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .mood-response {
+      margin-top: 20px;
+      font-style: italic;
+      color: #888;
+    }
+
+    footer {
+      padding: 30px;
+      text-align: center;
+      font-size: 0.9em;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  <div class="audio-control" onclick="toggleAudio()">🎵</div>
+  <audio id="bgAudio" loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+  </audio>
+
+  <section class="cinematic">
+    <h1>Benim adım sessizlik... ama içim hiç susmadı.</h1>
+    <div class="typewriter-box" id="typewriterBox"></div>
+  </section>
+
+  <section class="scene" style="background-image: url('https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1350&q=80');">
+    <div class="content">
+      Sessizim, çünkü bazen kelimeler yetmez.<br>
+      Ve ben, kalbimle anlatırım kendimi...
+      <div class="signature">– Sessizliğin İçinden</div>
+    </div>
+  </section>
+
+  <section class="scene" style="background-image: url('https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1350&q=80');">
+    <div class="content">
+      Sadakat benim dilimdir.<br>
+      Zor güvenirim ama güvenince sonsuz olurum.
+      <div class="signature">– Derin Bir Bağlılık</div>
+    </div>
+  </section>
+
+  <section class="scene" style="background-image: url('https://images.unsplash.com/photo-1517602302552-471fe67acf66?auto=format&fit=crop&w=1350&q=80');">
+    <div class="content">
+      Kırılgan değilim... ama içimde hep bir çatlak vardır.<br>
+      O yüzden daha sessizim, daha dikkatliyim.
+      <div class="signature">– Görünmeyeni Taşıyan</div>
+    </div>
+  </section>
+
+  <section class="scene" style="background-image: url('https://images.unsplash.com/photo-1519183071298-a2962eadcdb2?auto=format&fit=crop&w=1350&q=80');">
+    <div class="content">
+      Herkese açık değilim.<br>
+      Ama açıldığımda, bir evreni sunarım.
+      <div class="signature">– İçinde Bir Dünya Saklayan</div>
+    </div>
+  </section>
+
+  <section class="mood-check">
+    <h2>Bugün nasılsın?</h2>
+    <input type="text" id="moodInput" placeholder="Bir kelimeyle...">
+    <div class="mood-response" id="moodResponse"></div>
+  </section>
+
+  <section class="diary">
+    <h2>Gizli Günlüğüm</h2>
+    <textarea id="diaryInput" placeholder="Bugün içimde ne vardı..."></textarea><br>
+    <button class="save-btn" onclick="saveDiary()">Kaydet</button>
+  </section>
+
+  <section class="closing">
+    <p>Her şeyden kaçabilirsin... kendinden hariç.</p>
+    <p>– Ruhunu kodlara yazan biri</p>
+  </section>
+
+  <footer>© Sadece hissedebilenlerin anlayabileceği bir yer</footer>
+
+  <script>
+    const bgAudio = document.getElementById('bgAudio');
+    const control = document.querySelector('.audio-control');
+    let isPlaying = false;
+
+    function toggleAudio() {
+      if (isPlaying) {
+        bgAudio.pause();
+        control.textContent = '🔇';
+      } else {
+        bgAudio.play();
+        control.textContent = '🎵';
+      }
+      isPlaying = !isPlaying;
+    }
+
+    const messages = [
+      "Bazen en büyük çığlık, en derin sessizliktir...",
+      "Ben anlatmam, ama anlarsan sonsuz kalırım.",
+      "Her kelime içimde yankılanmadan geçmez.",
+      "İçimde bir evren var, sadece bakmasını bilen için."
+    ];
+
+    let twIndex = 0;
+    let charIndex = 0;
+    const box = document.getElementById('typewriterBox');
+
+    function typeWriter() {
+      if (twIndex < messages.length) {
+        if (charIndex < messages[twIndex].length) {
+          box.innerHTML += messages[twIndex].charAt(charIndex);
+          charIndex++;
+          setTimeout(typeWriter, 45);
+        } else {
+          box.innerHTML += "\n\n";
+          twIndex++;
+          charIndex = 0;
+          setTimeout(typeWriter, 800);
+        }
+      }
+    }
+
+    window.onload = () => {
+      setTimeout(typeWriter, 1000);
+      const saved = localStorage.getItem("myDiary");
+      if (saved) document.getElementById("diaryInput").value = saved;
+    };
+
+    function saveDiary() {
+      const content = document.getElementById("diaryInput").value;
+      localStorage.setItem("myDiary", content);
+      alert("Günlüğün kaydedildi.");
+    }
+
+    document.getElementById("moodInput").addEventListener("change", function() {
+      const val = this.value.toLowerCase();
+      const response = document.getElementById("moodResponse");
+      if (val.includes("yalnız")) response.innerText = "Yalnızlık bazen en dürüst yoldaştır...";
+      else if (val.includes("mutlu")) response.innerText = "İçindeki ışık, dünyaya yetiyor.";
+      else if (val.includes("yorgun")) response.innerText = "Belki de sadece durup nefes almak gerek.";
+      else response.innerText = "Kalbindekine dikkatlice bak... orada cevaplar var.";
+    });
+  </script>
+</body>
+</html>
