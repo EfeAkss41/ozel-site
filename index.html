@@ -6,109 +6,82 @@
   <title>Kara Sevda - Aşk ve Beşiktaş</title>
   <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body {
+    body, html {
       margin: 0;
       padding: 0;
-      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(255, 255, 255, 0.3)), url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/BesiktasJK.png/1200px-BesiktasJK.png');
-      background-size: cover;
-      background-position: center;
+      width: 100%;
+      height: 100%;
       font-family: 'Poppins', sans-serif;
-      color: #fff;
-      text-align: center;
+      background: linear-gradient(to right, #ffdde1, #ee9ca7);
       overflow: hidden;
-      position: relative;
-      animation: fadeIn 2s;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+    /* Giriş Ekranı */
+    #intro {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background-color: #ff4d6d;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      z-index: 9999;
+      animation: fadeOut 3s forwards;
+      animation-delay: 2.5s;
+    }
+
+    #intro h1 {
+      font-family: 'Parisienne', cursive;
+      font-size: 40px;
+      margin: 0;
+    }
+
+    @keyframes fadeOut {
+      0% { opacity: 1; }
+      100% { opacity: 0; visibility: hidden; }
+    }
+
+    /* Sayfa İçeriği */
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 20px;
     }
 
     h1 {
       font-family: 'Parisienne', cursive;
       font-size: 48px;
-      margin-top: 50px;
       color: #ff4d6d;
-      text-shadow: 2px 2px 4px #000;
+      margin-bottom: 20px;
     }
 
     p {
-      font-size: 20px;
-      margin: 20px auto;
-      width: 80%;
+      font-size: 18px;
+      color: #333;
       max-width: 600px;
-      color: #fff;
-      background: rgba(0, 0, 0, 0.5);
-      padding: 15px;
-      border-radius: 10px;
-      transition: transform 0.5s;
-    }
-
-    p:hover {
-      transform: scale(1.05);
+      margin-bottom: 10px;
     }
 
     .button {
       background-color: #ff4d6d;
       border: none;
       color: white;
-      padding: 15px 30px;
-      font-size: 16px;
-      margin: 10px 5px;
+      padding: 12px 24px;
       border-radius: 30px;
+      font-size: 16px;
+      margin: 10px;
       cursor: pointer;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-      transition: 0.3s;
-      position: relative;
-      overflow: hidden;
+      transition: background-color 0.3s;
     }
 
     .button:hover {
       background-color: #e60039;
-      transform: scale(1.05);
-      box-shadow: 0 0 20px #ff4d6d;
-    }
-
-    h1 span {
-      animation: kalp 1.5s infinite;
-      display: inline-block;
-    }
-
-    @keyframes kalp {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.2); }
-    }
-
-    .heart {
-      position: fixed;
-      top: -50px;
-      color: #ff4d6d;
-      font-size: 24px;
-      animation: fall linear infinite;
-      pointer-events: none;
-      opacity: 0.8;
-    }
-
-    @keyframes fall {
-      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
-    }
-
-    #darkScreen {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.9);
-      color: white;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 1000;
-      font-size: 30px;
-      font-family: 'Parisienne', cursive;
     }
 
     .marquee {
@@ -118,8 +91,8 @@
       background: rgba(0, 0, 0, 0.7);
       color: #ff4d6d;
       padding: 10px;
-      overflow: hidden;
       white-space: nowrap;
+      overflow: hidden;
       box-sizing: border-box;
     }
 
@@ -127,7 +100,7 @@
       display: inline-block;
       padding-left: 100%;
       animation: marquee 15s linear infinite;
-      font-size: 18px;
+      font-size: 16px;
     }
 
     @keyframes marquee {
@@ -135,47 +108,46 @@
       100% { transform: translate(-100%, 0); }
     }
 
+    /* Mobil uyum */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 32px;
+      }
+
+      p {
+        font-size: 16px;
+      }
+
+      .button {
+        width: 80%;
+        padding: 10px;
+      }
+    }
+
   </style>
 </head>
 <body>
 
-  <div id="darkScreen">Sonsuz Sevda 🖤❤️</div>
+  <!-- Giriş Ekranı -->
+  <div id="intro">
+    <h1>🖤 Bu site sana özel 🖤</h1>
+    <p>Bekle... birazdan sürprizin başlıyor!</p>
+  </div>
 
-  <h1><span>🖤</span> Kara Sevda <span>❤️</span></h1>
+  <main>
+    <h1>Kara Sevda 🖤❤️</h1>
+    <p>Beşiktaş gibi: Asla vazgeçmeyen bir aşk...</p>
+    <p>Her gün stadyum ışıkları gibi parlıyorum, sana olan sevgimle.</p>
+    <p>Kalbimde siyah beyaz sevdanın izleri var.</p>
 
-  <p>Beşiktaş gibi: Asla vazgeçmeyen bir aşk...</p>
-  <p>Senin için her gün stadyum ışıkları gibi parlıyorum.</p>
-  <p>Kalbimde siyah beyaz sevdanın izleri var, sen ve Beşiktaş 🖤🤍</p>
-  <p>Sana olan sevgim, tribünlerde yankılanan sevda marşı gibi hiç susmuyor.</p>
-
-  <button class="button" onclick="showDarkScreen()">🖤 Sonsuz Sevda 🖤</button>
-  <button class="button" onclick="goToGallery()">📸 Galeri 📸</button>
+    <button class="button" onclick="goToGallery()">📸 Galeri 📸</button>
+  </main>
 
   <div class="marquee">
-    <span>🖤 Bu site kara sevdam için... Sonsuz aşk ve Beşiktaş tutkusu ile hazırlandı. Her şampiyonluk bir başlangıçtır, bizim sevdamız ise sonsuz... 🖤</span>
+    <span>🖤 Sonsuz aşk ve Beşiktaş tutkusu ile hazırlandı. Her şampiyonluk bir başlangıçtır, bizim sevdamız ise sonsuz... 🖤</span>
   </div>
 
   <script>
-    function createHeart() {
-      const heart = document.createElement('div');
-      heart.classList.add('heart');
-      heart.style.left = Math.random() * 100 + 'vw';
-      heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
-      heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
-      heart.innerText = '❤️';
-      document.body.appendChild(heart);
-      setTimeout(() => heart.remove(), 5000);
-    }
-    setInterval(createHeart, 300);
-
-    function showDarkScreen() {
-      const screen = document.getElementById('darkScreen');
-      screen.style.display = 'flex';
-      setTimeout(() => {
-        screen.style.display = 'none';
-      }, 3000);
-    }
-
     function goToGallery() {
       window.location.href = 'galeri.html';
     }
