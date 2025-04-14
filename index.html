@@ -1,251 +1,95 @@
-<!-- Güncellenmiş: Yazılar uzatıldı, sahneler daha derinleştirildi, profesyonel anlatım güçlendirildi -->
 <!DOCTYPE html>
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Benim Adım Sessizlik</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kara Sevda - Aşk ve Beşiktaş</title>
+  <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body {
-      scroll-behavior: smooth;
-      font-family: 'EB Garamond', serif;
-      background: #000;
-      color: #fff;
-      overflow-x: hidden;
-    }
-
-    section {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      padding: 60px 30px;
-      text-align: center;
-      position: relative;
-    }
-
-    .cinematic {
-      background: linear-gradient(to bottom, #0d0d0d, #000);
-    }
-
-    .cinematic h1 {
-      font-size: 3em;
-      animation: scrollText 15s linear infinite;
-      white-space: nowrap;
-    }
-
-    @keyframes scrollText {
-      0% { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
-    }
-
-    .scene {
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0.7)), url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/BesiktasJK.png/1200px-BesiktasJK.png');
       background-size: cover;
-      background-attachment: fixed;
       background-position: center;
-      position: relative;
-    }
-
-    .scene::after {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 0;
-    }
-
-    .scene .content {
-      position: relative;
-      z-index: 1;
-      font-size: 1.5em;
-      max-width: 900px;
-      padding: 20px;
-      line-height: 2;
-    }
-
-    .closing {
-      background: #000;
-      font-style: italic;
-      color: #999;
-      padding-bottom: 100px;
-    }
-
-    .closing p:last-child {
-      margin-top: 25px;
-      color: #444;
-      font-size: 0.85em;
-    }
-
-    .signature {
-      margin-top: 25px;
-      font-size: 0.9em;
-      color: #888;
-      font-style: italic;
-    }
-
-    .typewriter-box {
-      margin-top: 40px;
-      font-size: 1.3em;
-      color: #ccc;
-      max-width: 800px;
-      min-height: 80px;
-      white-space: pre-wrap;
-      border-top: 1px solid #333;
-      padding-top: 20px;
-      opacity: 0.85;
-    }
-
-    .mood-check, .diary {
-      background: #111;
-      padding: 50px 20px;
+      font-family: 'Poppins', sans-serif;
+      color: #fff;
       text-align: center;
     }
 
-    .mood-check h2, .diary h2 {
-      font-size: 2em;
-      margin-bottom: 20px;
+    h1 {
+      font-family: 'Parisienne', cursive;
+      font-size: 48px;
+      margin-top: 50px;
+      color: #ff4d6d;
+      text-shadow: 2px 2px 4px #000;
     }
 
-    input, textarea {
-      padding: 15px;
-      width: 90%;
+    p {
+      font-size: 20px;
+      margin: 20px auto;
+      width: 80%;
       max-width: 600px;
-      border: none;
+      color: #f0f0f0;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 15px;
       border-radius: 10px;
-      background: #222;
-      color: #fff;
-      font-size: 1em;
     }
 
-    .save-btn {
-      margin-top: 15px;
-      padding: 10px 25px;
-      background: #444;
-      color: #fff;
+    .button {
+      background-color: #ff4d6d;
       border: none;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-
-    .mood-response {
-      margin-top: 20px;
-      font-style: italic;
-      color: #888;
-    }
-
-    footer {
-      padding: 30px;
+      color: white;
+      padding: 15px 30px;
       text-align: center;
-      font-size: 0.9em;
-      color: #444;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 10px 5px;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      transition: 0.3s;
+    }
+
+    .button:hover {
+      background-color: #e60039;
+    }
+
+    /* Animasyon */
+    @keyframes kalp {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    h1 span {
+      animation: kalp 1.5s infinite;
+      display: inline-block;
     }
   </style>
 </head>
 <body>
-  <section class="cinematic">
-    <h1>Benim adım sessizlik... ama içim hiç susmadı.</h1>
-    <div class="typewriter-box" id="typewriterBox"></div>
-  </section>
 
-  <section class="scene" style="background-image: url('https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1350&q=80');">
-    <div class="content">
-      Sessizim, çünkü bazen kelimeler yetmez. Çünkü kalbim, kelimelerden daha gürültülü konuşur. Konuşmam ama hissederim. Gözlerim anlatır içimde kopan fırtınaları. Duygularımı cümlelere sığdıramam çoğu zaman. Çünkü gerçek bir duygunun sesi yoktur; hissi vardır. Ve ben, hep o hissi taşırım içimde. Anlatmak istemem, çünkü anlayan az, yargılayan çoktur. Bu yüzden suskunluğum, kendimi koruma biçimimdir.
-      <div class="signature">– Sessizliğin İçinden</div>
-    </div>
-  </section>
+  <h1><span>🖤</span> Kara Sevda <span>❤️</span></h1>
 
-  <section class="scene" style="background-image: url('https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1350&q=80');">
-    <div class="content">
-      Sadakat benim doğamda var. Yarım sevmem, eksik kalamam. Ya tam olurum, ya hiç olmam. Birine kalbimi açtıysam, tüm benliğimi vermişimdir. Güven benim için bir kapıdır. Açıldığında, içeriye sadece temiz kalpliler girebilir. İhaneti kolay unutmam; affetsem bile eski halime dönemem. Çünkü içimde yer alan insanlar kolay girmez, ama bir kere girdiklerinde sonsuz kalırlar. Ben bağ kurduğum kişiye yük olmam; yanında olmayı seçtiysem, en karanlık zamanlarında bile oradayım demektir.
-      <div class="signature">– Derin Bir Bağlılık</div>
-    </div>
-  </section>
+  <p>Beşiktaş gibi: Asla vazgeçmeyen bir aşk...</p>
+  <p>Sana olan sevgim, Vodafone Park'ta yankılanan tezahürat gibi: Hiç susmuyor.</p>
+  <p>Sen, siyah beyaz renklerin en özel anlamısın. Kalbimde sonsuz tribün sesleri gibi çarpıyorsun.</p>
+  <p>Ne şampiyonluklar geçer, ne yıllar... Ama sana olan sevgim, Beşiktaş gibi hep baki kalacak.</p>
 
-  <section class="scene" style="background-image: url('https://images.unsplash.com/photo-1517602302552-471fe67acf66?auto=format&fit=crop&w=1350&q=80');">
-    <div class="content">
-      Kırılgan değilim... Ama fazla duyarlıyım. Dışımda sertlik, içimde çocuk kalmış bir parça vardır. Bazıları bunu zayıflık sanır, ama aslında bu en büyük güçtür: hissetmekten korkmamaktır. Çünkü ancak hissedebilenler, tam anlamıyla insan olabilir. Kolay güvenmem, kolay bağlanmam ama bir kez bağlandığımda kendimi geri çekmem. İçimdeki fırtınayı kimse görmez, ama o fırtına beni her gün yeniden ayakta tutar.
-      <div class="signature">– Görünmeyeni Taşıyan</div>
-    </div>
-  </section>
-
-  <section class="scene" style="background-image: url('https://images.unsplash.com/photo-1519183071298-a2962eadcdb2?auto=format&fit=crop&w=1350&q=80');">
-    <div class="content">
-      Herkese açık değilim. Ama açıldığımda, kelimelerime değil, kalbime dokunursun. Dışarıdan sessizim çünkü içimde çok şey konuşur. Ben bir evrenim; yıldızları olan, karanlık geceleri, sabahı bekleyen bir iç dünya. Bu dünyayı herkes ziyaret edemez. Güven, sabır ve samimiyet ister. Beni tanımak zaman ister. Ama tanıyanlar, bir kez bile vazgeçemez. Çünkü içimde kaybolan biri, kendini bulur belki de.
-      <div class="signature">– İçinde Bir Dünya Saklayan</div>
-    </div>
-  </section>
-
-  <section class="mood-check">
-    <h2>Bugün nasılsın?</h2>
-    <input type="text" id="moodInput" placeholder="Bir kelimeyle...">
-    <div class="mood-response" id="moodResponse"></div>
-  </section>
-
-  <section class="diary">
-    <h2>Gizli Günlüğüm</h2>
-    <textarea id="diaryInput" placeholder="Bugün içimde ne vardı..."></textarea><br>
-    <button class="save-btn" onclick="saveDiary()">Kaydet</button>
-  </section>
-
-  <section class="closing">
-    <p>Her şeyden kaçabilirsin... kendinden hariç.</p>
-    <p>– Ruhunu kodlara yazan biri</p>
-  </section>
-
-  <footer>© Sadece hissedebilenlerin anlayabileceği bir yer</footer>
+  <button class="button" onclick="mesajGoster()">❤️ Sevgimi Göster ❤️</button>
+  <button class="button" onclick="besiktasGoster()">🦅 Beşiktaş Ruhu 🦅</button>
 
   <script>
-    const messages = [
-      "Bazen en büyük çığlık, en derin sessizliktir...",
-      "Ben anlatmam, ama anlarsan sonsuz kalırım.",
-      "Her kelime içimde yankılanmadan geçmez.",
-      "İçimde bir evren var, sadece bakmasını bilen için.",
-      "Herkes beni duyabilir, ama çok azı gerçekten hissedebilir."
-    ];
-
-    let twIndex = 0;
-    let charIndex = 0;
-    const box = document.getElementById('typewriterBox');
-
-    function typeWriter() {
-      if (twIndex < messages.length) {
-        if (charIndex < messages[twIndex].length) {
-          box.innerHTML += messages[twIndex].charAt(charIndex);
-          charIndex++;
-          setTimeout(typeWriter, 45);
-        } else {
-          box.innerHTML += "\n\n";
-          twIndex++;
-          charIndex = 0;
-          setTimeout(typeWriter, 800);
-        }
-      }
+    function mesajGoster() {
+      alert("Seninle her gün şampiyonluk gibi... 🖤❤️");
     }
 
-    window.onload = () => {
-      setTimeout(typeWriter, 1000);
-      const saved = localStorage.getItem("myDiary");
-      if (saved) document.getElementById("diaryInput").value = saved;
-    };
-
-    function saveDiary() {
-      const content = document.getElementById("diaryInput").value;
-      localStorage.setItem("myDiary", content);
-      alert("Günlüğün kaydedildi.");
+    function besiktasGoster() {
+      alert("Beşiktaş aşkı gibi: Hiç bitmeyen, sonsuz bir sevda! 🦅");
     }
-
-    document.getElementById("moodInput").addEventListener("change", function() {
-      const val = this.value.toLowerCase();
-      const response = document.getElementById("moodResponse");
-      if (val.includes("yalnız")) response.innerText = "Yalnızlık bazen en dürüst yoldaştır...";
-      else if (val.includes("mutlu")) response.innerText = "İçindeki ışık, dünyaya yetiyor.";
-      else if (val.includes("yorgun")) response.innerText = "Belki de sadece durup nefes almak gerek.";
-      else response.innerText = "Kalbindekine dikkatlice bak... orada cevaplar var.";
-    });
   </script>
+
 </body>
 </html>
