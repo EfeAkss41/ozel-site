@@ -9,7 +9,7 @@
     body {
       margin: 0;
       padding: 0;
-      background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0.4)), url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/BesiktasJK.png/1200px-BesiktasJK.png');
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(255, 255, 255, 0.3)), url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/BesiktasJK.png/1200px-BesiktasJK.png');
       background-size: cover;
       background-position: center;
       font-family: 'Poppins', sans-serif;
@@ -17,6 +17,12 @@
       text-align: center;
       overflow: hidden;
       position: relative;
+      animation: fadeIn 2s;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
     h1 {
@@ -48,25 +54,20 @@
       border: none;
       color: white;
       padding: 15px 30px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
       font-size: 16px;
       margin: 10px 5px;
       border-radius: 30px;
       cursor: pointer;
       box-shadow: 0 4px 8px rgba(0,0,0,0.3);
       transition: 0.3s;
+      position: relative;
+      overflow: hidden;
     }
 
     .button:hover {
       background-color: #e60039;
-    }
-
-    @keyframes kalp {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.2); }
-      100% { transform: scale(1); }
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #ff4d6d;
     }
 
     h1 span {
@@ -74,7 +75,11 @@
       display: inline-block;
     }
 
-    /* Kalp Yağmuru */
+    @keyframes kalp {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
     .heart {
       position: fixed;
       top: -50px;
@@ -82,6 +87,7 @@
       font-size: 24px;
       animation: fall linear infinite;
       pointer-events: none;
+      opacity: 0.8;
     }
 
     @keyframes fall {
@@ -89,49 +95,72 @@
       100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
     }
 
-    /* Ekran Mesajı */
-    #screenMessage {
+    #darkScreen {
       position: fixed;
-      top: 40%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: rgba(255, 77, 109, 0.9);
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
       color: white;
-      padding: 20px 30px;
-      border-radius: 20px;
-      font-size: 22px;
       display: none;
-      animation: fadeOut 3s forwards;
+      align-items: center;
+      justify-content: center;
       z-index: 1000;
+      font-size: 30px;
+      font-family: 'Parisienne', cursive;
     }
 
-    @keyframes fadeOut {
-      0% { opacity: 1; }
-      80% { opacity: 1; }
-      100% { opacity: 0; }
+    .marquee {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      color: #ff4d6d;
+      padding: 10px;
+      overflow: hidden;
+      white-space: nowrap;
+      box-sizing: border-box;
     }
+
+    .marquee span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: marquee 15s linear infinite;
+      font-size: 18px;
+    }
+
+    @keyframes marquee {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(-100%, 0); }
+    }
+
   </style>
 </head>
 <body>
 
-  <div id="screenMessage">Seninle her gün şampiyonluk gibi 🖤❤️</div>
+  <div id="darkScreen">Sonsuz Sevda 🖤❤️</div>
 
   <h1><span>🖤</span> Kara Sevda <span>❤️</span></h1>
 
   <p>Beşiktaş gibi: Asla vazgeçmeyen bir aşk...</p>
-  <p>Sana olan sevgim, Vodafone Park'ta yankılanan tezahürat gibi: Hiç susmuyor.</p>
-  <p>Sen, siyah beyaz renklerin en özel anlamısın. Kalbimde sonsuz tribün sesleri gibi çarpıyorsun.</p>
-  <p>Ne şampiyonluklar geçer, ne yıllar... Ama sana olan sevgim, Beşiktaş gibi hep baki kalacak.</p>
+  <p>Senin için her gün stadyum ışıkları gibi parlıyorum.</p>
+  <p>Kalbimde siyah beyaz sevdanın izleri var, sen ve Beşiktaş 🖤🤍</p>
+  <p>Sana olan sevgim, tribünlerde yankılanan sevda marşı gibi hiç susmuyor.</p>
 
-  <button class="button" onclick="showMessage()">❤️ Sevgimi Göster ❤️</button>
-  <button class="button" onclick="besiktasGoster()">🦅 Beşiktaş Ruhu 🦅</button>
+  <button class="button" onclick="showDarkScreen()">🖤 Sonsuz Sevda 🖤</button>
+  <button class="button" onclick="goToGallery()">📸 Galeri 📸</button>
+
+  <div class="marquee">
+    <span>🖤 Bu site kara sevdam için... Sonsuz aşk ve Beşiktaş tutkusu ile hazırlandı. Her şampiyonluk bir başlangıçtır, bizim sevdamız ise sonsuz... 🖤</span>
+  </div>
 
   <script>
-    // Kalp yağmuru
     function createHeart() {
       const heart = document.createElement('div');
       heart.classList.add('heart');
       heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
       heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
       heart.innerText = '❤️';
       document.body.appendChild(heart);
@@ -139,17 +168,16 @@
     }
     setInterval(createHeart, 300);
 
-    // Ekran mesajı
-    function showMessage() {
-      const message = document.getElementById('screenMessage');
-      message.style.display = 'block';
+    function showDarkScreen() {
+      const screen = document.getElementById('darkScreen');
+      screen.style.display = 'flex';
       setTimeout(() => {
-        message.style.display = 'none';
+        screen.style.display = 'none';
       }, 3000);
     }
 
-    function besiktasGoster() {
-      alert("Beşiktaş aşkı gibi: Hiç bitmeyen, sonsuz bir sevda! 🦅");
+    function goToGallery() {
+      window.location.href = 'galeri.html';
     }
   </script>
 
