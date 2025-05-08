@@ -1,157 +1,104 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kara Sevda - Aşk ve Beşiktaş</title>
-  <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Efe Akşoş | Kişisel Web Sitesi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    body, html {
+    * {
       margin: 0;
       padding: 0;
-      width: 100%;
-      height: 100%;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to right, #ffdde1, #ee9ca7);
-      overflow: hidden;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
     }
-
-    /* Giriş Ekranı */
-    #intro {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      background-color: #ff4d6d;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      z-index: 9999;
-      animation: fadeOut 3s forwards;
-      animation-delay: 2.5s;
-    }
-
-    #intro h1 {
-      font-family: 'Parisienne', cursive;
-      font-size: 40px;
-      margin: 0;
-    }
-
-    @keyframes fadeOut {
-      0% { opacity: 1; }
-      100% { opacity: 0; visibility: hidden; }
-    }
-
-    /* Sayfa İçeriği */
-    main {
+    body {
+      background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
+      color: #f9f9f9;
+      line-height: 1.7;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       min-height: 100vh;
+      padding: 2rem;
+      position: relative;
+    }
+    header {
       text-align: center;
-      padding: 20px;
+      max-width: 900px;
+      margin-bottom: 3rem;
     }
-
     h1 {
-      font-family: 'Parisienne', cursive;
-      font-size: 48px;
-      color: #ff4d6d;
-      margin-bottom: 20px;
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #ffffff;
     }
-
     p {
-      font-size: 18px;
-      color: #333;
-      max-width: 600px;
-      margin-bottom: 10px;
+      font-size: 1.15rem;
+      color: #dcdcdc;
+      margin-bottom: 1.5rem;
     }
-
-    .button {
-      background-color: #ff4d6d;
-      border: none;
-      color: white;
-      padding: 12px 24px;
-      border-radius: 30px;
-      font-size: 16px;
-      margin: 10px;
-      cursor: pointer;
-      transition: background-color 0.3s;
+    nav {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
     }
-
-    .button:hover {
-      background-color: #e60039;
+    nav a {
+      padding: 0.7rem 1.5rem;
+      background-color: #ffffff11;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: 500;
+      border: 1px solid #ffffff22;
+      transition: all 0.3s ease;
     }
-
-    .marquee {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.7);
-      color: #ff4d6d;
-      padding: 10px;
-      white-space: nowrap;
-      overflow: hidden;
-      box-sizing: border-box;
+    nav a:hover {
+      background-color: #ffffff33;
     }
-
-    .marquee span {
-      display: inline-block;
-      padding-left: 100%;
-      animation: marquee 15s linear infinite;
-      font-size: 16px;
+    .signature {
+      position: absolute;
+      bottom: 10px;
+      right: 20px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      color: #777;
+      opacity: 0.8;
     }
-
-    @keyframes marquee {
-      0% { transform: translate(0, 0); }
-      100% { transform: translate(-100%, 0); }
-    }
-
-    /* Mobil uyum */
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 32px;
-      }
-
-      p {
-        font-size: 16px;
-      }
-
-      .button {
-        width: 80%;
-        padding: 10px;
-      }
-    }
-
   </style>
 </head>
 <body>
+  <header>
+    <h1>Efe Akşoş</h1>
+    <p>
+      Ben, 7/24 ulaşılabilen biri olmanın ne demek olduğunu bilen, empatiye ve sadakate önem veren biriyim.
+      Karşımdaki insanı rahatsız ettiğimi ya da kırdığımı fark ettiğimde bunu görmezden gelmem; özür dilemekten çekinmem,
+      çünkü insan ilişkilerinin temelinde saygı ve farkındalık olduğuna inanırım.
+    </p>
+    <p>
+      Kodlarla, projelerle, bilgisayarlarla aramda güçlü bir bağ var. Zamanımın çoğunu yeni şeyler üretmeye, öğrenmeye
+      ve kendimi geliştirmeye adıyorum. Programlama sadece mesleğim değil, aynı zamanda tutkumu ifade etme şeklim.
+    </p>
+    <p>
+      Hayatımda biri varsa, onun varlığını küçük sürprizlerle özel hissettirmekten keyif alırım.
+      Bazen bir satır kod, bazen birkaç kelime bile sevgiyi anlatmaya yeter. Göstermeyi severim,
+      çünkü sevgi sadece hissedilmekle kalmamalı; yaşatılmalı.
+    </p>
+    <p>
+      Beni tanıdıkça, sadece bir geliştirici değil; aynı zamanda duygularıyla barışık, düşünceli ve güvenilir biri olduğumu anlayacaksınız.
+    </p>
+  </header>
 
-  <!-- Giriş Ekranı -->
-  <div id="intro">
-    <h1>🖤 Bu site sana özel 🖤</h1>
-    <p>Bekle... birazdan sürprizin başlıyor!</p>
-  </div>
+  <nav>
+    <a href="hakkimda.html">Hakkımda</a>
+    <a href="projeler.html">Projelerim</a>
+    <a href="galeri.html">Galeri</a>
+    <a href="iletisim.html">İletişim</a>
+  </nav>
 
-  <main>
-    <h1>Kara Sevda 🖤❤️</h1>
-    <p>Beşiktaş gibi: Asla vazgeçmeyen bir aşk...</p>
-    <p>Her gün stadyum ışıkları gibi parlıyorum, sana olan sevgimle.</p>
-    <p>Kalbimde siyah beyaz sevdanın izleri var.</p>
-
-    <button class="button" onclick="goToGallery()">📸 Galeri 📸</button>
-  </main>
-
-  <div class="marquee">
-    <span>🖤 Sonsuz aşk ve Beşiktaş tutkusu ile hazırlandı. Her şampiyonluk bir başlangıçtır, bizim sevdamız ise sonsuz... 🖤</span>
-  </div>
-
-  <script>
-    function goToGallery() {
-      window.location.href = 'galeri.html';
-    }
-  </script>
-
+  <div class="signature">© Efe Akşoş - Tüm Hakları Saklıdır</div>
 </body>
 </html>
