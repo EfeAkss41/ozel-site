@@ -1,102 +1,84 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Efe Akşoş | Kişisel Web Sitesi</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
-    }
-    body {
-      background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
-      color: #f9f9f9;
-      line-height: 1.7;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      padding: 2rem;
-      position: relative;
-    }
-    header {
-      text-align: center;
-      max-width: 900px;
-      margin-bottom: 3rem;
-    }
-    h1 {
-      font-size: 3rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      color: #ffffff;
-    }
-    p {
-      font-size: 1.15rem;
-      color: #dcdcdc;
-      margin-bottom: 1.5rem;
-    }
-    nav {
-      display: flex;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    nav a {
-      padding: 0.7rem 1.5rem;
-      background-color: #ffffff11;
-      color: #ffffff;
-      text-decoration: none;
-      border-radius: 12px;
-      font-weight: 500;
-      border: 1px solid #ffffff22;
-      transition: all 0.3s ease;
-    }
-    nav a:hover {
-      background-color: #ffffff33;
-    }
-    .signature {
-      position: absolute;
-      bottom: 10px;
-      right: 20px;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.9rem;
-      color: #777;
-      opacity: 0.8;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Doğum Günün Kutlu Olsun</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <h1>Efe Akşoş</h1>
-    <p>
-      Ben, 7/24 ulaşılabilen biri olmanın ne demek olduğunu bilen, empatiye ve sadakate önem veren biriyim.
-      Karşımdaki insanı rahatsız ettiğimi ya da kırdığımı fark ettiğimde bunu görmezden gelmem; özür dilemekten çekinmem,
-      çünkü insan ilişkilerinin temelinde saygı ve farkındalık olduğuna inanırım.
-    </p>
-    <p>
-      Kodlarla, projelerle, bilgisayarlarla aramda güçlü bir bağ var. Zamanımın çoğunu yeni şeyler üretmeye, öğrenmeye
-      ve kendimi geliştirmeye adıyorum. Programlama sadece mesleğim değil, aynı zamanda tutkumu ifade etme şeklim.
-    </p>
-    <p>
-      Hayatımda biri varsa, onun varlığını küçük sürprizlerle özel hissettirmekten keyif alırım.
-      Bazen bir satır kod, bazen birkaç kelime bile sevgiyi anlatmaya yeter. Göstermeyi severim,
-      çünkü sevgi sadece hissedilmekle kalmamalı; yaşatılmalı.
-    </p>
-    <p>
-      Beni tanıdıkça, sadece bir geliştirici değil; aynı zamanda duygularıyla barışık, düşünceli ve güvenilir biri olduğumu anlayacaksınız.
-    </p>
-  </header>
 
-  <nav>
-    <a href="hakkimda.html">Hakkımda</a>
-    <a href="iletisim.html">İletişim</a>
-  </nav>
+  <!-- Giriş Ekranı -->
+  <div class="giris-ekrani">
+    <div class="yazi">
+      <h1>2 Temmuz...</h1>
+      <p>Bugün sadece senin doğum günün değil.<br>  
+      Aynı zamanda birinin seni sessizce, ama içtenlikle düşündüğü gün.</p>
+      <button onclick="devamEt()">Devam Et</button>
+    </div>
+  </div>
 
-  <div class="signature">© Efe Akşoş - Tüm Hakları Saklıdır</div>
+  <!-- Doğum Günü Mesajı -->
+  <section class="dogum-gunu-bolumu" id="dogumGunu" style="display:none;">
+    <div class="yazi">
+      <h2>Bugün… sadece senin doğum günün değil.</h2>
+      <p>
+        Belki senin farkında olmadığın bir şey var:  
+        <br><br>
+        Birinin içtenlikle, samimiyetle, sessizce seni düşündüğü bir gün bugün.  
+        <br><br>
+        “İyi ki doğdun” demek bazen fazla basit geliyor...  
+        Çünkü senin varlığın, sadece bir günü değil, bazı hayatları daha güzel yapıyor.
+      </p>
+      <button onclick="sohbetBolumuneGec()">Devam Et</button>
+    </div>
+  </section>
+
+  <!-- Sohbetler Bölümü -->
+  <section id="sohbetler" style="display:none;">
+    <div class="sohbet-icerik">
+      <h2>Bazı Şeyleri Konuşmak Gerekmez...</h2>
+      <div class="baloncuklar">
+        <div class="baloncuk">⚡ Bu emoji, artık seninle özdeş.</div>
+        <div class="baloncuk">💗 O “şaka” sanıyorsun ya… belki de ciddiydim biraz 🙂</div>
+        <div class="baloncuk">✨ Sen yazınca telefon biraz daha güzel gözüküyor.</div>
+        <div class="baloncuk">🫶 Aramızdaki konuşmalar… sanki gizli bir dil gibi bazen.</div>
+      </div>
+      <button onclick="gizliBolumeGec()">Devam Et</button>
+    </div>
+  </section>
+
+  <!-- Gizli Mesaj Bölümü -->
+  <section id="gizliMesaj" style="display:none;">
+    <div class="gizli-icerik">
+      <h2>Gizli Bir Not</h2>
+      <p>
+        Belki hiçbir zaman doğrudan söylemedim…  
+        Ama her mesajda, her şakada, her suskunlukta bir şey vardı:  
+        Seni düşündüğüm.<br><br>
+        Bazı duygular kelimeye sığmaz.  
+        Tıpkı bu site gibi… söylemedi belki, ama hissettirdi.
+      </p>
+      <button onclick="kapanisBolumuneGec()">Devam Et</button>
+    </div>
+  </section>
+
+  <!-- Kapanış Bölümü -->
+  <section id="kapanis" style="display:none;">
+    <div class="kapanis-icerik">
+      <h2>Siteden Çıkmadan Önce...</h2>
+      <p>
+        Belki bu site sana sadece birkaç satır yazı gibi geldi...  
+        Ama her satırı, her efekti, her geçişi düşünerek hazırlandı.  
+        Çünkü bu site sana özel.<br><br>
+        Bugün... sadece doğum günün değil.  
+        Aynı zamanda biri tarafından içtenlikle düşünüldüğün bir gün.<br><br>
+        Gülümsemen yeter. Gerisini ben sustum zaten...
+      </p>
+      <p style="margin-top: 20px;">💌 Efe</p>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
 </body>
 </html>
