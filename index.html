@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sana Özel Bir Sürpriz</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Giriş Ekranı -->
+  <div class="giris-ekrani" id="girisEkrani">
+    <div class="giris-kutu">
+      <h1>Sana özel bir şey var...</h1>
+      <p>Adını yaz ve sürprizi başlat ✨</p>
+      <input type="text" id="isimInput" placeholder="İsmini yaz..." />
+      <button onclick="kontrolEt()">Devam Et</button>
+      <p id="hataMesaji" class="hata"></p>
+    </div>
+  </div>
+
+  <!-- Hoş Geldin Sahnesi -->
+  <div class="hosgeldin" id="hosgeldin" style="display:none;">
+    <h2 id="hosgeldinYazi"></h2>
+    <button onclick="mesajBolumuneGec()">Devam Et</button>
+  </div>
+
+  <!-- Devamı (placeholder) -->
+  <div id="dogumGunuMesaji" class="dogum-mesaji" style="display:none;">
+    <canvas id="kalpCanvas"></canvas>
+    <div class="mesaj-icerik">
+      <h2>Doğum Günün Kutlu Olsun 💌</h2>
+      <p>
+        İyi ki doğdun demek... bazen yetmiyor.<br><br>
+        Çünkü senin gibi biri sadece doğmuş olmuyor — güzellik de onunla birlikte geliyor dünyaya.<br><br>
+        Belki çok şey söylemedim sana.<br>
+        Ama bu satırların her biri, söylenmeyen ama hissedilen şeylerin yansıması.<br><br>
+        Bugün, sadece takvimde bir gün değil.<br>
+        Bugün... seninle aynı zaman diliminde olduğum için şükrettiğim bir gün.
+      </p>
+      <button onclick="gizliMesajaGec()">Devam Et</button>
+    </div>
+  </div>
+
+  
+<div id="gizliMesaj" class="gizli-mesaj" style="display:none;">
+  <div class="mesaj-icerik">
+    <h2>Bir Not...</h2>
+    <p>
+      Seni sevdiğimi söyledim.<br>
+      Belki fazlasıyla…<br>
+      Ama hiçbir zaman bir cevap zorlamadım.<br>
+      Çünkü kalpten gelen şeyin adı olmaz bazen,<br>
+      Sadece yavaşça hissedilir.<br><br>
+
+      Şakalar yaptım, güldük, sustuk…<br>
+      Ama bilmeni isterim:<br>
+      Bazı cümleler sadece seni güldürmek içindi,<br>
+      Bazılarıysa... seni kaybetmemek içindi.<br><br>
+
+      Ne senden bir şey bekledim,<br>
+      Ne de seni bir kalıba koymak istedim.<br>
+      Yanında olabilmek bana hep yeterliydi.<br><br>
+
+      Bazen düşündüm...<br>
+      Biz neydik?<br>
+      Belki adı olmayan bir şeydik.<br>
+      Ama değeri çok olan bir şey.<br><br>
+
+      Bu site, bir “seni seviyorum” değil sadece.<br>
+      Bu site, <em>“sen benim içimde güzel bir yerdesin”</em> demenin dijital hâli.<br>
+      Ve inan…<br>
+      <strong>Orada olmak için hiçbir şey yapmana gerek yoktu.</strong>
+    </p>
+    <p style="font-style: italic; margin-top: 20px;">Sadece gerçekten okuyan anlar.</p>
+    <button onclick="kapanisBolumuneGec()">Devam Et</button>
+  </div>
+</div>
+
+  
+<div id="kapanisMesaji" class="kapanis" style="display:none;">
+  <div class="kapanis-icerik">
+    <p>
+      Site burada bitiyor ama hissettirdikleri burada kalmasın...<br><br>
+      Zamanla, mesafeyle ya da suskunlukla silinmeyecek kadar özel bir his vardı içimde.<br><br>
+      Bunu bir 'beklenti' ile yapmadım.<br><br>
+      Sadece gülümsediğini hayal ettim...<br><br>
+      Ve eğer gülümsediysen...<br>
+      <strong>Her şeye değdi.</strong>
+    </p>
+    <p style="font-style: italic; margin-top: 20px;">Ziyaretin yeterdi. Teşekkür ederim.</p>
+    <button onclick="window.close()">Siteyi Kapat</button>
+  </div>
+</div>
+
+  
+<!-- Ek bağlantı butonları -->
+<div style="text-align: center; margin-top: 40px;">
+  <a href="anilar.html" style="display:inline-block; padding:12px 24px; margin:10px; background:#b1004b; color:white; border-radius:10px; text-decoration:none; font-family:sans-serif;">Birlikteki Anılar</a>
+  <a href="neden.html" style="display:inline-block; padding:12px 24px; margin:10px; background:#b1004b; color:white; border-radius:10px; text-decoration:none; font-family:sans-serif;">Neden Özelsin?</a>
+</div>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
