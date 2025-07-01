@@ -5,49 +5,70 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sana Özel Bir Sürpriz</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .muzik-alani {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #fff0f5;
+      padding: 10px 15px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      font-family: sans-serif;
+      z-index: 9999;
+    }
+    .muzik-alani button {
+      background: #b1004b;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .muzik-alani button:hover {
+      background: #8c0040;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Giriş Ekranı -->
-  <div class="giris-ekrani" id="girisEkrani">
-    <div class="giris-kutu">
-      <h1>Sana özel bir şey var...</h1>
-      <p>Adını yaz ve sürprizi başlat ✨</p>
-      <input type="text" id="isimInput" placeholder="İsmini yaz..." />
-      <button onclick="kontrolEt()">Devam Et</button>
-      <p id="hataMesaji" class="hata"></p>
-    
-  <a href="harita.html" style="display:inline-block; padding:12px 24px; margin:10px; background:#b1004b; color:white; border-radius:10px; text-decoration:none; font-family:sans-serif;">Yıldız Haritası</a>
-
+<!-- Giriş Ekranı -->
+<div class="giris-ekrani" id="girisEkrani">
+  <div class="giris-kutu">
+    <h1>Sana özel bir şey var...</h1>
+    <p>Adını yaz ve sürprizi başlat ✨</p>
+    <input type="text" id="isimInput" placeholder="İsmini yaz..." />
+    <button onclick="kontrolEt()">Devam Et</button>
+    <p id="hataMesaji" class="hata"></p>
+  </div>
 </div>
-  </div>
 
-  <!-- Hoş Geldin Sahnesi -->
-  <div class="hosgeldin" id="hosgeldin" style="display:none;">
-    <h2 id="hosgeldinYazi"></h2>
-    <button onclick="mesajBolumuneGec()">Devam Et</button>
-  </div>
+<!-- Hoş Geldin Sahnesi -->
+<div class="hosgeldin" id="hosgeldin" style="display:none;">
+  <h2 id="hosgeldinYazi"></h2>
+  <button onclick="mesajBolumuneGec()">Devam Et</button>
+</div>
 
-  <!-- Devamı (placeholder) -->
-  <div id="dogumGunuMesaji" class="dogum-mesaji" style="display:none;">
-    <canvas id="kalpCanvas"></canvas>
-    <div class="mesaj-icerik">
-      <h2>Doğum Günün Kutlu Olsun 💌</h2>
-      <p>
-        Bugün senin doğum günün...  
-        Ve belki de bu, sana özel bir şey yapmak için en güzel fırsattı.<br><br>
-        
-        Her yıl biraz daha güzelleşen bir insansın.  
-        Senin gibi biri tanıdığım için kendimi şanslı hissediyorum.<br><br>
-        
-        Umarım bu küçük sürpriz seni gülümsetir.  
-        Çünkü o gülümseme... gerçekten çok güzel.
-      </p>
-      <button onclick="gizliMesajaGec()">Devam Et</button>
-    </div>
+<!-- Doğum Günü Mesajı -->
+<div id="dogumGunuMesaji" class="dogum-mesaji" style="display:none;">
+  <canvas id="kalpCanvas"></canvas>
+  <div class="mesaj-icerik">
+    <h2>Doğum Günün Kutlu Olsun 💌</h2>
+    <p>
+      Bugün senin doğum günün...  
+      Ve belki de bu, sana özel bir şey yapmak için en güzel fırsattı.<br><br>
+      
+      Her yıl biraz daha güzelleşen bir insansın.  
+      Senin gibi biri tanıdığım için kendimi şanslı hissediyorum.<br><br>
+      
+      Umarım bu küçük sürpriz seni gülümsetir.  
+      Çünkü o gülümseme... gerçekten çok güzel.
+    </p>
+    <button onclick="gizliMesajaGec()">Devam Et</button>
   </div>
+</div>
 
-  
+<!-- Gizli Mesaj -->
 <div id="gizliMesaj" class="gizli-mesaj" style="display:none;">
   <div class="mesaj-icerik">
     <h2>Küçük Bir Not</h2>
@@ -62,14 +83,14 @@
       Gülümsemen için çabaladım.<br><br>
 
       Ve eğer yüzünde minicik bir tebessüm oluştuysa...  
-  <strong>bu sürpriz tam da olması gerektiği gibi olmuş demektir.</strong>
+      <strong>bu sürpriz tam da olması gerektiği gibi olmuş demektir.</strong>
     </p>
     <p style="font-style: italic; margin-top: 20px;">Sadece gerçekten okuyan anlar.</p>
     <button onclick="kapanisBolumuneGec()">Devam Et</button>
   </div>
 </div>
 
-  
+<!-- Kapanış Mesajı -->
 <div id="kapanisMesaji" class="kapanis" style="display:none;">
   <div class="kapanis-icerik">
     <p>
@@ -80,21 +101,27 @@
       Umarım kalbine küçük bir sıcaklık bırakmıştır.<br><br>
 
       Gülümsediysen...<br>
-  <strong>Benim için bu, fazlasıyla yeterlidir.</strong>
-</p>
-<p style="font-style: italic; margin-top: 20px;">İyi ki doğdun, Elif.</p>
-    <button onclick="window.close()">Siteyi Kapat</button>
+      <strong>Benim için bu, fazlasıyla yeterlidir.</strong>
+    </p>
+    <p style="font-style: italic; margin-top: 20px;">İyi ki doğdun, Elif.</p>
+    <button onclick="location.reload()">En Başa Dön</button><br><br>
+    <a href="harita.html" style="display:inline-block; padding:12px 24px; background:#b1004b; color:white; border-radius:10px; text-decoration:none; font-family:sans-serif;">Yıldız Haritası</a>
   </div>
 </div>
 
-  
-<!-- Ek bağlantı butonları -->
+<!-- Ek bağlantılar -->
 <div style="text-align: center; margin-top: 40px;">
   <a href="anilar.html" style="display:inline-block; padding:12px 24px; margin:10px; background:#b1004b; color:white; border-radius:10px; text-decoration:none; font-family:sans-serif;">Birlikteki Anılar</a>
   <a href="neden.html" style="display:inline-block; padding:12px 24px; margin:10px; background:#b1004b; color:white; border-radius:10px; text-decoration:none; font-family:sans-serif;">Neden Özelsin?</a>
 </div>
 
+<!-- Müzik Çalar Alanı -->
+<div class="muzik-alani">
+  <p style="margin: 0 0 5px 0;">🎵 Birlikte Daha Güçlüyüz</p>
+  <audio id="audioPlayer" src="elif_sarki.mp3"></audio>
+  <button onclick="document.getElementById('audioPlayer').play()">Başlat</button>
+</div>
 
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
