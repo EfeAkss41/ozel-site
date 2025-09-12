@@ -3,7 +3,7 @@ function kontrolEt() {
   const isim = document.getElementById("isimInput").value.trim().toLowerCase();
   const hataMesaji = document.getElementById("hataMesaji");
 
-  if (isim === "elif") {
+  if (isim === "sümeyra") {
     document.getElementById("girisEkrani").style.display = "none";
     document.getElementById("hosgeldin").style.display = "flex";
     yaziyiGoster();
@@ -13,7 +13,7 @@ function kontrolEt() {
 }
 
 function yaziyiGoster() {
-  const yazi = "Hoş geldin Elif 💖\nBugün... sadece senin doğum günün değil.\nBirinin içtenlikle seni düşündüğü gün.";
+  const yazi = "Hoş geldin Prensesim 💖\nBugün... senin doğum günün \nBitanem Canım Hayatım Benim.";
   const hedef = document.getElementById("hosgeldinYazi");
   let index = 0;
 
